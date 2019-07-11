@@ -41,8 +41,9 @@ public class Response {
 			}
 			return this;
 		} else {
+			File pageNotFound = new File("404/404.html");
 			return new Response(StatusCode.NOT_FOUND)
-				.withHtmlBody("<html><body>File " + f + " not found.</body></html>");
+				.withFile(pageNotFound);
 		}
 	}
 	
