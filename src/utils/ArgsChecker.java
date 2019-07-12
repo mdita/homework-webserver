@@ -29,14 +29,14 @@ public class ArgsChecker {
 	}
 	
 	private static boolean checkNoOfArgs(String[] args) {
-		if (args.length > 3 || args.length < 3) {
-			System.out.println("please provide valid args: " + "port, " + "threads no., " + "file | folder. ");
-			
+		if (args[0].equals("-h") || args[0].equals("--help")) {
+			System.out.println("Example: java -cp webserver.jar server.Main <PORT> <THREADS> <FILE | DIRECTORY>");
 			return false;
 		}
 		
-		if (args[0] == "-h" || args[0] == "--help") {
-			System.out.println("Example: java -cp webserver.jar server.Main <PORT> <THREADS> <FILE | DIRECTORY>");
+		if (args.length > 3 || args.length < 3) {
+			System.out.println("please provide valid args: " + "port, " + "threads no., " + "file | folder. ");
+			
 			return false;
 		}
 		
