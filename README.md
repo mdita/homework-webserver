@@ -25,22 +25,23 @@ java -cp webserver.jar server.Main -h (or --help)
 
 
 **More samples**
+<p><br></p>
 <code>
 java -cp webserver.jar server.Main 8080 9 empty // empty folder validation
 </code>
-
+<p><br></p>
 <code>
 java -cp webserver.jar server.Main 8080 9 index.pdf // pdf not supported
 </code>
-
+<p><br></p>
 <code>
 java -cp webserver.jar server.Main 8080 9 text.txt // supports text
 </code>
-
+<p><br></p>
 <code>
 java -cp webserver.jar server.Main 8080 15 empty // no more than 10 thread
 </code>
-
+<p><br></p>
 <code>
 java -cp webserver.jar server.Main 808080880 9 empty // port not valid
 </code>
