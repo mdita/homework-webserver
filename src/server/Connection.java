@@ -45,7 +45,8 @@ public class Connection implements Runnable {
 					String method;
 					if ((method = request.getMethod()).equals(Method.GET) 
 								|| method.equals(Method.HEAD)) {
-						File f = new File(server.getFileOrDirectory() + request.getUrl());
+						String file = getFilePath(server.getFileOrDirectory(), request.getUrl());
+						File f = new File(file);
 						response = new Response(StatusCode.OK).withFile(f);
 						if (method.equals(Method.HEAD)) {
 							response.removeBody();
@@ -120,6 +121,24 @@ public class Connection implements Runnable {
 		PrintWriter writer = new PrintWriter(out);
 		writer.write(toSend);
 		writer.flush();
+	}
+	
+	private String getFilePath(String fileOrDirectory, String url) {
+		File f = new File(fileOrDirectory);
+		
+		if (f.isFile() && !url.equals("/")) {
+			return "404/404.index.html";
+		}
+		
+		if (f.isFile() && url.equals("/")) {
+			return fileOrDirectory;
+		}
+		
+		if (f.isDirectory() && url.equals("/")) {
+			return fileOrDirectory.concat(url).concat("index.html");
+		} else {
+			return fileOrDirectory.concat(url);
+		}
 	}
 
 }
