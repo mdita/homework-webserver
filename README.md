@@ -22,26 +22,25 @@ You can also play with the args because there are some validations that need to 
 <code>
 java -cp webserver.jar server.Main -h (or --help)
 </code>
-
-
-**More samples**
 <p><br></p>
+**More samples**
+<p></p>
 <code>
 java -cp webserver.jar server.Main 8080 9 empty // empty folder validation
 </code>
-<p><br></p>
+<p></p>
 <code>
 java -cp webserver.jar server.Main 8080 9 index.pdf // pdf not supported
 </code>
-<p><br></p>
+<p></p>
 <code>
 java -cp webserver.jar server.Main 8080 9 text.txt // supports text
 </code>
-<p><br></p>
+<p></p>
 <code>
 java -cp webserver.jar server.Main 8080 15 empty // no more than 10 thread
 </code>
-<p><br></p>
+<p></p>
 <code>
 java -cp webserver.jar server.Main 808080880 9 empty // port not valid
 </code>
