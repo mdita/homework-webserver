@@ -34,7 +34,7 @@ public class ArgsChecker {
 			return false;
 		}
 		
-		if (args.length > 3 || args.length < 3) {
+		if (args.length > 3 || args.length < 3 || args.length > 3) {
 			System.out.println("please provide valid args: " + "port, " + "threads no., " + "file | folder. ");
 			
 			return false;
