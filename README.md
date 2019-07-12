@@ -11,7 +11,9 @@ A simple **webserver** implemented in Java.
 
 <p>Start the webserver using this terminal command :</p>
 <code>java -cp webserver.jar server.Main 8080 9 index.html</code>
+
 <p>OR</p>
+
 <code>java -cp webserver.jar server.Main 8080 9 webfiles</code>
 
 <p>If you start with <em>index.html</em> only this file will be delivered on path root <strong>/</strong>. If you start with webfiles then all files that are in this folder will be delivered. 
@@ -21,19 +23,24 @@ You can also play with the args because there are some validations that need to 
 java -cp webserver.jar server.Main -h (or --help)
 </code>
 
+
 **More samples**
 <code>
 java -cp webserver.jar server.Main 8080 9 empty // empty folder validation
 </code>
+
 <code>
 java -cp webserver.jar server.Main 8080 9 index.pdf // pdf not supported
 </code>
+
 <code>
 java -cp webserver.jar server.Main 8080 9 text.txt // supports text
 </code>
+
 <code>
 java -cp webserver.jar server.Main 8080 15 empty // no more than 10 thread
 </code>
+
 <code>
 java -cp webserver.jar server.Main 808080880 9 empty // port not valid
 </code>
