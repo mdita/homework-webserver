@@ -73,31 +73,6 @@ public class Connection implements Runnable {
 				}
 			}
 			
-//			Request request = Request.parseRequest(in);
-//			
-//			if (request != null) {
-//				System.out.println("Request for " + request.getUrl() + " is being processed " +
-//						"by socket at " + client.getInetAddress() +":"+ client.getPort());
-//					
-//				Response response;
-//					
-//				String method;
-//				if ((method = request.getMethod()).equals(Method.GET) 
-//							|| method.equals(Method.HEAD)) {
-//						File f = new File(server.getFileOrDirectory() + request.getUrl());
-//						response = new Response(StatusCode.OK).withFile(f);
-//						if (method.equals(Method.HEAD)) {
-//							response.removeBody();
-//						}
-//					} else {
-//						response = new Response(StatusCode.NOT_IMPLEMENTED);
-//					}
-//					
-//					respond(response);
-//			} else {
-//				System.err.println("Only HTTP is allowed here.");
-//			}
-			
 			in.close();
 			out.close();
 		} catch (IOException e) {
