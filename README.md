@@ -46,6 +46,7 @@ java -cp webserver.jar server.Main 8080 15 empty // no more than 10 thread
 java -cp webserver.jar server.Main 808080880 9 empty // port not valid
 </code>
 
+<p></p>
 <p>When started with a folder, for example <strong>webfiles</strong>,  if you access in browser path <strong>/</strong> the <em>index.html</em> will be delivered as default. Also there is a check for pdf files, when the client tries to access <strong>/index.pdf</strong> an error page is provided with an informative message. Same when the requested file doesn't exist</p>
 
 <strong>FYI</strong> This webserver is also able to provide pdf files, I added this restriction / check for more fun :) .
