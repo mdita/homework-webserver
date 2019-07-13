@@ -23,6 +23,10 @@ public class Response {
 	
 	public Response withFile(File f) {
 		if (f.isFile()) {
+			String fileName = f.getName();
+			if (!isHtml(fileName) && !isText(fileName)) {
+				return setResponseErrorPage("errors/notsupported.html");
+			}
 			try {
 				FileInputStream reader = new FileInputStream(f);
 				int length = reader.available();
@@ -37,7 +41,7 @@ public class Response {
 			}
 			return this;
 		} else {
-			return setResponseErrorPage("404/404.index");
+			return setResponseErrorPage("errors/404/404.html");
 		}
 	}
 	
@@ -61,7 +65,8 @@ public class Response {
 	}
 	
 	public void setContentTypeBasedOnFile(File f) {
-		if (f.getName().endsWith(".htm") || f.getName().endsWith(".html")) {
+		String fileName = f.getName();
+		if (isHtml(fileName)) {
 			setContentType(ContentType.HTML);
 		} else {
 			setContentType(ContentType.TEXT);
@@ -93,5 +98,21 @@ public class Response {
 			result += new String(body);
 		}
 		return result;
+	}
+	
+	private boolean isHtml(String fileName) {
+		if (fileName.endsWith(".html") || fileName.endsWith(".htm")) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	private boolean isText(String fileName) {
+		if (fileName.endsWith(".txt")) {
+			return true;
+		}
+		
+		return false;
 	}
 }
