@@ -45,3 +45,22 @@ java -cp webserver.jar server.Main 8080 15 empty // no more than 10 thread
 <code>
 java -cp webserver.jar server.Main 808080880 9 empty // port not valid
 </code>
+
+<p>When started with a folder, for example <strong>webfiles</strong>,  if you access in browser path <strong>/</strong> the <em>index.html</em> will be delivered as default. Also there is a check for pdf files, when the client tries to access <strong>/index.pdf</strong> an error page is provided with an informative message. Same when the requested file doesn't exist</p>
+
+<strong>FYI</strong> This webserver is also able to provide pdf files, I added this restriction / check for more fun :) .
+
+**How to start and access the webserver**
+
+<p>See the <em>examples</em> section in order to start the program</p>
+<p>After the program will start, select your favorite web browser and go to <em>http://localhost:8080</em>. You can do the same also with <em>curl</em></p>
+
+Links example
+-
+- http://localhost:8080
+- http://localhost:8080/index.html
+- http://localhost:8080/text.txt
+- http://localhost:8080/blabla
+- http://localhost:8080/index.pdf
+- <em>curl -X POST -I http://localhost:8080 </em> , in order to see 501 Not implemented, POST is not supported
+
