@@ -31,19 +31,13 @@ public class Response {
 				reader.close();
 				
 				setContentLength(length);
-				if (f.getName().endsWith(".htm") || f.getName().endsWith(".html")) {
-					setContentType(ContentType.HTML);
-				} else {
-					setContentType(ContentType.TEXT);
-				}
+				setContentTypeBasedOnFile(f);
 			} catch (IOException e) {
 				System.err.println("Error while reading " + f);
 			}
 			return this;
 		} else {
-			File pageNotFound = new File("404/404.html");
-			return new Response(StatusCode.NOT_FOUND)
-				.withFile(pageNotFound);
+			return setResponseErrorPage("404/404.index");
 		}
 	}
 	
@@ -64,6 +58,20 @@ public class Response {
 
 	public void setContentType(String value) {
 		headers.put("Content-Type", value);
+	}
+	
+	public void setContentTypeBasedOnFile(File f) {
+		if (f.getName().endsWith(".htm") || f.getName().endsWith(".html")) {
+			setContentType(ContentType.HTML);
+		} else {
+			setContentType(ContentType.TEXT);
+		}
+	}
+	
+	public Response setResponseErrorPage(String file) {
+		File page = new File(file);
+		return new Response(StatusCode.NOT_FOUND)
+			.withFile(page);
 	}
 	
 	public void setConnectionType(String value) {
