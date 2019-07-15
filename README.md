@@ -66,3 +66,9 @@ Links example
 - http://localhost:8080/index.pdf
 - <em>curl -X POST -I http://localhost:8080 </em> , in order to see 501 Not implemented, POST is not supported
 
+
+**Reference links**
+[http://www.infinitepartitions.com/cgi-bin/showarticle.cgi?article=art078](http://www.infinitepartitions.com/cgi-bin/showarticle.cgi?article=art078)
+https://github.com/ibogomolov/WebServer
+http://www.santhoshreddymandadi.com/java/simple-multithreaded-web-server-java.html
+https://www.net.t-labs.tu-berlin.de/teaching/computer_networking/ap01.htm
